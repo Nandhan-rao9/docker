@@ -17,4 +17,4 @@ COPY . .
 EXPOSE 8501
 
 # Run the Streamlit app when the container starts
-CMD ["streamlit", "run", "app.py", "--server.enableCORS=false"]
+CMD ["streamlit", "run", "open.py", "--server.enableCORS=true"]
