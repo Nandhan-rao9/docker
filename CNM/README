@@ -1,4 +1,6 @@
+Here’s your README rewritten with clean **GitHub-friendly Markdown formatting**:
 
+````markdown
 # 🚀 Dockerized Visitor Counter App
 
 This is a simple web application built with **Python (Flask)** and **Redis** that counts and displays the number of visits to a web page. The entire application stack is containerized using **Docker**.
@@ -66,4 +68,20 @@ docker network rm visitor-net
 ```
 
 ---
+
+## 📸 Demo Screenshot (Optional)
+
+*Add a screenshot of your app running here for better visibility.*
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+```
+
+Do you want me to also add a **`docker-compose.yml`** section so you can run the whole app with a single command (`docker-compose up`)?
+```
+
 
