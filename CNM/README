@@ -1,63 +1,67 @@
-Here’s your README rewritten with clean **GitHub-friendly Markdown formatting**:
 
-````markdown
-# 🚀 Dockerized Visitor Counter App
+# Dockerized Visitor Counter App
 
-This is a simple web application built with **Python (Flask)** and **Redis** that counts and displays the number of visits to a web page. The entire application stack is containerized using **Docker**.
-
----
-
-## ✨ Features
-- **Web Framework**: Flask  
-- **Database**: Redis  
-- **Deployment**: Docker  
+A simple web application built with **Python (Flask)** and **Redis** that counts and displays the number of visits to a web page.  
+The entire application stack is containerized using **Docker**.
 
 ---
 
-## 📦 Prerequisites
+## Features
+- Web Framework: **Flask**
+- Database: **Redis**
+- Deployment: **Docker**
+
+---
+
+## Prerequisites
 - [Docker](https://www.docker.com/get-started) must be installed and running on your system.
 
 ---
 
-## 🛠️ How to Run
+## How to Run
 
-1. **Clone the repository**
-   ```bash
-   git clone <your-repo-url>
-   cd python-app
+### 1. Clone the repository
+```bash
+git clone <your-repo-url>
+cd python-app
 ````
 
-2. **Build the Docker image for the web application**
+### 2. Build the Docker image for the web application
 
-   ```bash
-   docker build -t visitor-app .
-   ```
+```bash
+docker build -t visitor-app .
+```
 
-3. **Create a Docker network** (allows the web app and the database to communicate)
+### 3. Create a Docker network
 
-   ```bash
-   docker network create visitor-net
-   ```
+This allows the web app and the database to communicate.
 
-4. **Run the Redis container**
+```bash
+docker network create visitor-net
+```
 
-   ```bash
-   docker run -d --name redis --network visitor-net redis:alpine
-   ```
+### 4. Run the Redis container
 
-5. **Run the web application container**
+```bash
+docker run -d --name redis --network visitor-net redis:alpine
+```
 
-   ```bash
-   docker run -d --name web-app --network visitor-net -p 5000:5000 visitor-app
-   ```
+### 5. Run the web application container
 
-6. **Access the application**
-   Open your browser and navigate to 👉 [http://localhost:5000](http://localhost:5000).
-   Each refresh will increment the visitor counter.
+```bash
+docker run -d --name web-app --network visitor-net -p 5000:5000 visitor-app
+```
+
+### 6. Access the application
+
+Open your browser and go to:
+👉 [http://localhost:5000](http://localhost:5000)
+
+Each refresh will increment the visitor counter.
 
 ---
 
-## 🧹 Stop and Clean Up
+## Stop and Clean Up
 
 To stop and remove the containers and network:
 
@@ -69,19 +73,6 @@ docker network rm visitor-net
 
 ---
 
-## 📸 Demo Screenshot (Optional)
-
-*Add a screenshot of your app running here for better visibility.*
-
----
-
-## 📄 License
-
-This project is licensed under the MIT License.
-
-```
-
-Do you want me to also add a **`docker-compose.yml`** section so you can run the whole app with a single command (`docker-compose up`)?
 ```
 
 
