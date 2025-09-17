@@ -1,0 +1,60 @@
+# Dockerized Python Visitor Counter 🐳
+
+![Python](https://img.shields.io/badge/Python-3.9-blue.svg) ![Flask](https://img.shields.io/badge/Flask-2.0-lightgrey.svg) ![Docker](https://img.shields.io/badge/Docker-20.10-blue.svg) ![Redis](https://img.shields.io/badge/Redis-6.2-red.svg)
+
+A simple web application built with Python (Flask) and a Redis database that counts and displays the number of page visits. The entire application stack is containerized and orchestrated using Docker and Docker Compose.
+
+
+
+---
+
+## ## Key Docker Concepts Demonstrated
+
+This project serves as a practical demonstration of fundamental Docker skills, including:
+* **Dockerfile Creation:** Writing a multi-stage `Dockerfile` from scratch to create a lean, production-ready Python application image.
+* **Image Building & Management:** Building custom images and managing them.
+* **Multi-Container Orchestration:** Using **Docker Compose** to define, run, and manage a multi-service application (web app + database).
+* **Container Networking:** Creating a user-defined bridge network to enable seamless communication between containers via service discovery (DNS).
+* **Data Persistence:** (Note: This project can be extended to demonstrate volumes for persisting Redis data).
+
+---
+
+## ## Prerequisites
+
+* [Docker](https://www.docker.com/get-started)
+* [Docker Compose](https://docs.docker.com/compose/install/) (comes with Docker Desktop)
+* [Git](https://git-scm.com/downloads)
+
+---
+
+## ## How to Run the Application
+
+1.  **Clone the Repository**
+    ```bash
+    git clone [https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git](https://github.com/YOUR_USERNAME/YOUR_REPO_NAME.git)
+    cd YOUR_REPO_NAME
+    ```
+
+2.  **Start the Application with Docker Compose**
+    This single command will build the Python application image, create the necessary network, and start both the web app and Redis containers.
+    ```bash
+    docker compose up -d --build
+    ```
+    * `-d`: Runs the containers in detached mode (in the background).
+    * `--build`: Forces a build of the image before starting the containers.
+
+3.  **Access the Application**
+    Open your web browser and navigate to:
+    **`http://localhost:5000`**
+
+    Each time you refresh the page, you'll see the visitor count increase!
+
+---
+
+## ## To Stop and Clean Up
+
+To stop the application and remove all associated containers and networks, run the following command from the project directory:
+
+```bash
+docker compose down
+```
