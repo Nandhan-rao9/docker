@@ -1,0 +1,18 @@
+version: '3.8' # Specifies the Compose file format version
+
+services: # This is where we define our containers
+  webapp: # The name for our Python web application service
+    build: . # Instructs Compose to build an image from the Dockerfile in the current directory
+    ports:
+      - "5000:5000" # Maps port 5000 on the host to port 5000 in the container
+    networks:
+      - visitor-net
+
+  redis: # The name for our Redis database service
+    image: "redis:alpine" # Instructs Compose to pull the redis:alpine image from Docker Hub
+    networks:
+      - visitor-net
+
+networks: # This is where we define our networks
+  visitor-net: # The name of our network
+    driver: bridge # Specifies the network driver
