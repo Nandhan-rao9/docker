@@ -1,78 +1,57 @@
+🐳 Visitor App
+A simple Flask + Redis application running in Docker.
 
-# 🐳 Visitor App
+📦 Prerequisites
+Linux VM (e.g., EC2)
 
-A simple **Flask + Redis** application running in Docker.
+Docker
 
----
+Git
 
-## 📦 Prerequisites
-- Linux VM (e.g., EC2)
-- Docker
-- Git
-
----
-
-## 🚀 Setup Instructions
-
-### 1. Log into VM & Install Dependencies
-```bash
+🚀 Setup Instructions
+1. Log into VM & Install Dependencies
 sudo yum install -y docker
 sudo yum install -y git
-````
 
-### 2. Clone the Repository
-
-```bash
+2. Clone the Repository
 git clone <this-git-repo-link>
 cd <repo-name>
-```
 
-### 3. Configure Docker
-
-```bash
+3. Configure Docker
 sudo service docker start
 sudo usermod -aG docker $USER
-```
 
-> ⚠️ Log out and log back in after adding user to `docker` group.
+⚠️ Important: Log out and log back in after adding your user to the docker group for the changes to take effect.
 
-### 4. Build Docker Image
-
-```bash
+4. Build Docker Image
 docker build -t visitor-app .
-```
 
-### 5. Create Docker Network
+5. Create Docker Network
+A dedicated network allows the containers to communicate with each other.
 
-```bash
 docker network create visitor-net
-```
 
-### 6. Run Containers
+6. Run Containers
+Start Redis
 
-**Start Redis**
+This command starts the Redis container in detached mode (-d), names it redis, and attaches it to our created network.
 
-```bash
 docker run -d --name redis --network visitor-net redis:alpine
-```
 
-**Start Flask App**
+Start Flask App
 
-```bash
+This command starts the Flask web application, connects it to the same network, and maps port 5000 on the host to port 5000 in the container.
+
 docker run -d --name web-app --network visitor-net -p 5000:5000 visitor-app
-```
 
-### 7. Verify Containers
+7. Verify Containers
+Check that both containers are running successfully.
 
-```bash
 docker ps
-```
 
----
+🌍 Access the App
+You can now access the application by navigating to your VM's public IP address on port 5000.
 
-## 🌍 Access the App
-
-```
 http://<EC2-PUBLIC-IP>:5000
-```
+
 
