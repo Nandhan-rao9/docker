@@ -1,1 +1,19 @@
-#header
+# 🐳 Visitor App
+
+A simple Flask + Redis application running in Docker.
+
+---
+
+## 📦 Prerequisites
+- A Linux VM (EC2 or similar)
+- Docker installed
+- Git installed
+
+---
+
+## 🚀 Setup Instructions
+
+### 1️⃣ Log into VM & Install Dependencies
+```bash
+sudo yum install docker -y
+sudo yum install git -y
