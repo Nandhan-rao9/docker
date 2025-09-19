@@ -5,78 +5,15 @@ A simple **Flask + Redis** application running in Docker.
 ---
 
 ## 📦 Prerequisites
-
-* A Linux VM (EC2 or similar)
-* Docker installed
-* Git installed
+- Linux VM (e.g., EC2)
+- Docker
+- Git
 
 ---
 
 ## 🚀 Setup Instructions
 
-### 1️⃣ Log into VM & Install Dependencies
-
+### 1. Log into VM & Install Dependencies
 ```bash
-sudo yum install docker -y
-sudo yum install git -y
-```
-
-### 2️⃣ Clone the Repository
-
-```bash
-git clone <this-git-repo-link>
-cd <repo-name>
-```
-
-### 3️⃣ Configure Docker on VM
-
-```bash
-sudo service docker start
-sudo usermod -aG docker $USER
-```
-
-> ⚠️ After adding the user to the `docker` group, **log out and log back in** for changes to take effect.
-
-### 4️⃣ Build Docker Image
-
-```bash
-docker build -t visitor-app .
-```
-
-### 5️⃣ Create a Docker Network
-
-```bash
-docker network create visitor-net
-```
-
-### 6️⃣ Run Containers
-
-Start Redis:
-
-```bash
-docker run -d --name redis --network visitor-net redis:alpine
-```
-
-Start Flask App:
-
-```bash
-docker run -d --name web-app --network visitor-net -p 5000:5000 visitor-app
-```
-
-### 7️⃣ Verify Running Containers
-
-```bash
-docker ps
-```
-
----
-
-## 🌍 Access the App
-
-Open in your browser:
-
-```
-http://<EC2-PUBLIC-IP>:5000
-```
-
-
+sudo yum install -y docker
+sudo yum install -y git
